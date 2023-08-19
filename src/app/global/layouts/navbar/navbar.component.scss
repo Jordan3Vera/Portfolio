@@ -1,4 +1,9 @@
+#login {
+    color: #f2f2f2;
+    font-weight: bold;
+}
 #login:hover{
-    text-decoration: underline;
+    color: rgba(255, 255, 0, 0.686);
     cursor: pointer;
+    font-weight: bold;
 }
