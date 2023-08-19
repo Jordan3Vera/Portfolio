@@ -6,10 +6,10 @@ import { PublicComponent } from './global/public/public.component';
 import { ProfileComponent } from './global/pages/profile/profile.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'public', pathMatch: 'full' },
   { path: 'public', component: PublicComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: 'public', pathMatch: 'full' }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
