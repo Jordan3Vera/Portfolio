@@ -24,6 +24,7 @@ import { DashboardComponent } from './global/pages/dashboard/dashboard.component
 import { PublicComponent } from './global/public/public.component';
 import { ProfileComponent } from './global/pages/profile/profile.component';
 import { AboutMeComponent } from './global/pages/about-me/about-me.component';
+import { NotfoundComponent } from './global/pages/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AboutMeComponent } from './global/pages/about-me/about-me.component';
     DashboardComponent,
     PublicComponent,
     ProfileComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

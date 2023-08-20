@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class NavbarComponent implements OnInit{
 
-  constructor(public auth: AuthService, @Inject(DOCUMENT) public document: Document){}
+  constructor(public auth: AuthService, @Inject(DOCUMENT) public document: Document, private router: Router){}
 
   textToType: string = `El desarrollo web es una de las innovaciones <br> más grandes de todos los tiempos. <br/> ¡Aprende y crea con pasión!`;
   currentText: string = "";
@@ -49,10 +50,12 @@ export class NavbarComponent implements OnInit{
     }, 70);
   }
 
-  loginWithRedirect(){
+  // TODO: Login
+  login(){
     this.auth.loginWithRedirect();
   }
-
+  
+  // TODO: Cerrar sesión
   logout(){
     this.auth.logout({logoutParams: {returnTo: this.document.location.origin}});
   }

@@ -32,7 +32,7 @@
             <a class="nav-link" [routerLink]="'profile'">Perfil</a>
           </li>
           <li class="nav-item dropdown" *ngIf="(auth.isAuthenticated$ | async)">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Lista
             </a>
             <ul class="dropdown-menu">
@@ -47,12 +47,40 @@
           </li>
         </ul>
         <div class="nav-item d-flex align-items-center gap-2" *ngIf="!(auth.isAuthenticated$ | async)" id="login">
-            <span class="nav-link" (click)="auth.loginWithRedirect()"> Iniciar sesión</span>
-            <i class="fa-regular fa-user"></i>
+          <span class="nav-link" (click)="login()"> Iniciar sesión</span>
+          <i class="fa-regular fa-user"></i>
         </div>
 
-        <div class="nav-item" *ngIf="(auth.isAuthenticated$ | async)">
-            <button type="button" class="btn btn-danger" (click)="logout()">Salir</button>
+        <!-- <div class="nav-item" *ngIf="(auth.isAuthenticated$ | async)">
+          <button type="button" class="btn btn-danger" (click)="logout()">Salir</button>
+        </div> -->
+        <div class="dropdown" *ngIf="(auth.isAuthenticated$ | async) as user">
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle border-0 text-info" 
+          data-bs-toggle="dropdown" aria-expanded="false" *ngIf="auth.user$ | async as user">
+            <i class="fas fa-user mx-2"></i>{{ user.nickname }}
+          </button>
+
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item" type="button">
+                <i class="fas fa-user"></i>
+                Perfil 
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button">
+                <i class="fa-solid fa-gear"></i>
+                Configuración
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="submit" (click)="logout()" 
+              style="background-color: #E74C3C; color: white; transition: background-color 0.s;">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Cerrar sesión
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
