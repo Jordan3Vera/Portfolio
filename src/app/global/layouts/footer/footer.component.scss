@@ -1,0 +1,10 @@
+form .form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+ul li{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    align-items: center;
+}

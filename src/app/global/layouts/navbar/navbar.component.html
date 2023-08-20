@@ -1,8 +1,23 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" data-bs-navbar-on-scroll="data-bs-navbar-on-scroll">
+<section class="hero d-flex align-items-center justify-content-center" *ngIf="!(auth.isAuthenticated$ | async)">
+  <div class="position-absolute text-white mt-5 mb-lg-4 fs-3 fw-bold" style="font-family: monospace;">
+    <!-- El desarrollo web es una de las innovaciones <br> más grandes de todos los tiempos -->
+    <!-- {{ currentText }} -->
+    <span [innerHTML]="currentText"></span>
+  </div>
+
+
+  <div class="videoWrapper" style="width: 100%;">
+      <img src="assets/images/notebook.jpg" class="img-fluid img-sm-cover"
+      alt="Imagen de computadora"  style="width: 100%; object-fit: cover; height: 75vh;">
+  </div>
+</section>
+
+<!-- Barra de navegación -->
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-5" data-bs-navbar-on-scroll="data-bs-navbar-on-scroll">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" *ngIf="!(auth.isAuthenticated$ | async)">
-        <img src="assets/images/my_logo.png" alt="Logo" height="40">
+      <a class="navbar-brand d-flex align-items-center gap-2" *ngIf="!(auth.isAuthenticated$ | async)" style="cursor: pointer;">
+        <img src="assets/images/My_profile_pic.png" alt="Logo" height="40" class="rounded-5">
         <span class="nav-link active" aria-current="page" [routerLink]="'public'" style="font-family: vagrant;">Home</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +45,7 @@
             </ul>
           </li>
           <li class="nva-item" *ngIf="!(auth.isAuthenticated$ | async)">
-            <a class="nav-link">Sobre mí</a>
+            <a class="nav-link disabled" [routerLink]="'about-me'">Sobre mí</a>
           </li>
         </ul>
         <div class="nav-item d-flex align-items-center gap-2" *ngIf="!(auth.isAuthenticated$ | async)" id="login">
