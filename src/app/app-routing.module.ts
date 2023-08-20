@@ -8,15 +8,14 @@ import { NotfoundComponent } from './global/pages/notfound/notfound.component';
 
 // Guards 
 import { AuthGuard } from './shared/guards/auth.guard';
-import { MainComponent } from './global/layouts/main/main.component';
-import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  // { path: '', component: PublicComponent, pathMatch: 'full' },
+  { path: '', component: PublicComponent },
   { path: 'about-me', component: AboutMeComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: '**', component: NotfoundComponent }
+  { path: 'not-found', component: NotfoundComponent },
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full'}
 ];
 
 @NgModule({
