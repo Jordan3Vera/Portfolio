@@ -1,11 +1,7 @@
-// import { domain, clientInd } from '../../auth_config.json';
-
 export const environment = {
     production: false,
-
-    // auth: {
-    //     domain,
-    //     clientInd,
-    //     redirectUrl: window.location.origin
-    // }
+    auth: {
+        domain: 'portfolio-profile.us.auth0.com',
+        clientId: 'IGFhsy9frTkzJgNxYrHP9qLlrVw9C5xi'
+    }
 };

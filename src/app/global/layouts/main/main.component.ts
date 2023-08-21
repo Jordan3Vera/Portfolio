@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 
@@ -9,13 +10,9 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class MainComponent implements OnInit{
 
-  constructor(public auth: AuthService, private router: Router){}
+  constructor(public auth: AuthService, private router: Router, private title: Title){}
 
   ngOnInit(): void {
-    this.auth.isAuthenticated$.subscribe(isAuthenticated => {
-      if(isAuthenticated){
-        this.router.navigate(['/dashboard']);
-      }
-    });
+    this.title.setTitle("MyPortasite");
   }
 }

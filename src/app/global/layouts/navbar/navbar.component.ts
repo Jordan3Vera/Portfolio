@@ -10,7 +10,10 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class NavbarComponent implements OnInit{
 
-  constructor(public auth: AuthService, @Inject(DOCUMENT) public document: Document, private router: Router){}
+  constructor(public auth: AuthService, 
+              @Inject(DOCUMENT) public document: Document, 
+              private router: Router)
+  {}
 
   textToType: string = `El desarrollo web es una de las innovaciones <br> más grandes de todos los tiempos. <br/> ¡Aprende y crea con pasión!`;
   currentText: string = "";
@@ -52,7 +55,9 @@ export class NavbarComponent implements OnInit{
 
   // TODO: Login
   login(){
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect().subscribe(() => {
+      this.router.navigate(['/dashboard']);
+    });
   }
   
   // TODO: Cerrar sesión

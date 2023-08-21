@@ -22,14 +22,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Una vez iniciada la sesión esto se muestra -->
+      <!-- TODO: Una vez iniciada la sesión esto se muestra -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" routerLinkActive="active" *ngIf="(auth.isAuthenticated$ | async)">
-            <a class="nav-link active" aria-current="page" [routerLink]="'dashboard'">Home</a>
+          <li class="nav-item d-flex" routerLinkActive="active" *ngIf="(auth.isAuthenticated$ | async)">
+            <img src="assets/images/my_logo.png" alt="Logo" height="40" class="rounded-5">
+            <a class="nav-link active" aria-current="page" [routerLink]="'dashboard'">Inicio</a>
           </li>
           <li class="nav-item" routerLinkActive="active" *ngIf="(auth.isAuthenticated$ | async)">
-            <a class="nav-link" [routerLink]="'profile'">Perfil</a>
+            <a class="nav-link" [routerLink]="'profile'">Acerca de mí</a>
           </li>
           <li class="nav-item dropdown" *ngIf="(auth.isAuthenticated$ | async)">
             <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,14 +47,14 @@
             <a class="nav-link disabled" [routerLink]="'about-me'">Sobre mí</a>
           </li>
         </ul>
+
+        <!-- TODO: Iniciar sesión -->
         <div class="nav-item d-flex align-items-center gap-2" *ngIf="!(auth.isAuthenticated$ | async)" id="login">
           <span class="nav-link" (click)="login()"> Iniciar sesión</span>
           <i class="fa-regular fa-user"></i>
         </div>
 
-        <!-- <div class="nav-item" *ngIf="(auth.isAuthenticated$ | async)">
-          <button type="button" class="btn btn-danger" (click)="logout()">Salir</button>
-        </div> -->
+        <!-- TODO: El menú de usuario -->
         <div class="dropdown" *ngIf="(auth.isAuthenticated$ | async) as user">
           <button type="button" class="btn btn-outline-secondary dropdown-toggle border-0 text-info" 
           data-bs-toggle="dropdown" aria-expanded="false" *ngIf="auth.user$ | async as user">
@@ -62,16 +63,16 @@
 
           <ul class="dropdown-menu">
             <li>
-              <button class="dropdown-item" type="button">
+              <a class="dropdown-item" [routerLink]="['/dashboard/profile-user']">
                 <i class="fas fa-user"></i>
                 Perfil 
-              </button>
+              </a>
             </li>
             <li>
-              <button class="dropdown-item" type="button">
+              <a class="dropdown-item">
                 <i class="fa-solid fa-gear"></i>
                 Configuración
-              </button>
+              </a>
             </li>
             <li>
               <button class="dropdown-item" type="submit" (click)="logout()" 
