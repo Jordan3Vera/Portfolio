@@ -52,21 +52,44 @@
             <!-- *Consulta -->
             <div class="col-lg-4">
                 <h5 class="fw-bold">Envía tu consulta</h5>
-                <form class="card py-3 px-4 bg-body-secondary" autocomplete="off">
+                <!-- <form class="card py-3 px-4 bg-body-secondary" method="post" action="https://formsubmit.co/jordan3vera@gmail.com"
+                [formGroup]="contactForm" (ngSubmit)="onSubmit()" autocomplete="off">
                     <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control rounded-1" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control rounded-1" id="name" name="name" 
+                        placeholder="Ingresa tu nombre" formControlName="name">
                     </div>
                     <div class="mb-3">
-                    <label for="correo" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control rounded-1" id="correo" name="correo" placeholder="Ingresa tu correo">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control rounded-1" id="email" name="email" 
+                        placeholder="Ingresa tu correo" formControlName="email">
                     </div>
                     <div class="mb-3">
-                    <label for="consulta" class="form-label">Consulta</label>
-                    <textarea class="form-control rounded-1" id="consulta" name="consulta" rows="4" placeholder="Cuál es tu consulta.." 
-                    style="resize: none;"></textarea>
+                        <label for="query" class="form-label">Consulta</label>
+                        <textarea class="form-control rounded-1" id="query" name="query" rows="4" placeholder="Cuál es tu consulta.." 
+                        style="resize: none;" formControlName="query"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-outline-success">Enviar</button>
+                    <button class="btn btn-outline-success" [disabled]="contactForm.invalid">Enviar</button>
+                </form> -->
+
+                <form class="card py-3 px-4 bg-body-secondary" method="POST" 
+                action="https://formsubmit.co/dlco.ylpsk3@xupiv.com" autocomplete="off">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control rounded-1" name="name" 
+                        placeholder="Ingresa tu nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control rounded-1" name="email" 
+                        placeholder="Ingresa tu correo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="query" class="form-label">Consulta</label>
+                        <textarea class="form-control rounded-1" name="query" rows="4" placeholder="Cuál es tu consulta.." 
+                        style="resize: none;"></textarea>
+                    </div>
+                    <button class="btn btn-outline-success" type="submit">Enviar</button>
                 </form>
             </div>
         </div>

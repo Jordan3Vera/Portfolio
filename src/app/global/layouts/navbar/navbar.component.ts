@@ -61,6 +61,13 @@ export class NavbarComponent implements OnInit{
   }
   
   // TODO: Cerrar sesión
+  confirmLogout(){
+    const res = confirm("¿Estás seguro que quieres cerrar la sesión?");
+    if(res){
+      this.logout();
+    }
+  }
+
   logout(){
     this.auth.logout({logoutParams: {returnTo: this.document.location.origin}});
   }
